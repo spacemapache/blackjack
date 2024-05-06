@@ -1,0 +1,34 @@
+body {
+  background: linear-gradient(
+    109.6deg,
+    rgb(17, 151, 147) 11.2%,
+    rgb(154, 214, 212) 55.4%,
+    rgb(255, 233, 171) 100.2%
+  );
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: hsla(0, 0%, 100%, 0.76);
+  padding: 20px;
+}
+
+h1 {
+  font-size: 60px;
+  font-family: "Sedan SC", serif;
+}
+
+button {
+  height: 40px;
+  width: 120px;
+  border-radius: 5px;
+  margin: 5px;
+  font-weight: bold;
+}
+
+#message {
+  font-size: 25px;
+}
