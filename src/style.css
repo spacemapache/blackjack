@@ -14,12 +14,11 @@ body {
   flex-direction: column;
   background-color: hsla(0, 0%, 100%, 0.76);
   padding: 20px;
-  max-width: 500px;
 }
 
 h1 {
   font-size: 60px;
-  font-family: "Sedan SC", serif;
+  font-family: "Azeret Mono", monospace;
 }
 
 button {
@@ -28,6 +27,19 @@ button {
   border-radius: 5px;
   margin: 5px;
   font-weight: bold;
+  font-family: "Space Mono", monospace;
+}
+
+p {
+  font-family: "Space Mono", monospace;
+}
+
+#playerDetails {
+  font-weight: bold;
+}
+
+#cards {
+  margin-bottom: -10px;
 }
 
 #message {

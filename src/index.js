@@ -1,29 +1,49 @@
-// function for display card 1 text (random number)
-// if else statements (if < 21, deal more, else if 21 congrats, else > 21 you're out)
-// display statements
-// button for new card
-// function for display card 2 text (random number)
-// if else statements (if < 21, deal more, else if 21 congrats, else > 21 you're out)
-
-// add boolean variable if player is alive or has blackjack
-
-// 2 cards drawn for start game - must be random , show each number and sum
-
-let card1 = Math.floor(Math.random() * 13) + 1;
-let card2 = Math.floor(Math.random() * 13) + 1;
+let cards = [];
+let sum = 0;
 
 let cardDisplay = document.getElementById("cards");
 let messageDisplay = document.getElementById("message");
 let sumDisplay = document.getElementById("sum");
 
-let isAlive = true;
+let isAlive = false;
 let hasBlackJack = false;
 
-// function to display cards and sum for starting game
-function startGame() {
-  cardDisplay.textContent = "Cards: " + card1 + "," + card2;
+let player = {
+  name: "Isabelle",
+  chips: 150,
+};
 
-  let sum = card1 + card2;
+let playerDetails = document.getElementById("playerDetails");
+playerDetails.textContent = `${player.name}: $${player.chips}`;
+
+// function to get random number
+function getRandomNumber() {
+  let randomNumber = Math.floor(Math.random() * 13) + 1;
+  if (randomNumber === 1) {
+    return 11;
+  } else if (randomNumber > 10) {
+    return 10;
+  } else {
+    return randomNumber;
+  }
+}
+
+function startGame() {
+  isAlive = true;
+  let card1 = getRandomNumber();
+  let card2 = getRandomNumber();
+  cards = [card1, card2];
+  sum = card1 + card2;
+  renderGame();
+}
+
+// function to display cards and sum
+function renderGame() {
+  cardDisplay.textContent = "Cards: ";
+  for (let i = 0; i < cards.length; i++) {
+    cardDisplay.textContent += cards[i] + ", ";
+  }
+
   sumDisplay.textContent = "Sum: " + sum;
 
   if (sum <= 20) {
@@ -32,5 +52,16 @@ function startGame() {
     messageDisplay.textContent = "Congrats, you've won!!";
   } else {
     messageDisplay.textContent = "You lose!!";
+    isAlive = false;
+  }
+}
+
+// fuction for new card
+function newCard() {
+  if (isAlive === true && hasBlackJack === false) {
+    let card3 = getRandomNumber();
+    sum += card3;
+    cards.push(card3);
+    renderGame();
   }
 }
